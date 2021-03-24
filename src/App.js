@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Home from "./pages/Home";
 
+
+const axios = require('axios')
 function App() {
+  const  getReport = async () => {
+ try   {
+      const response = await axios.get('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Vishneve%20kiev%20ukraine?unitGroup=metric&key=DNXXQ6TVGXMLXZRFYJMA92QSE&include=fcst%2Chours%2Ccurrent')
+      console.log(response.data);
+    } catch (error) {
+      console.log(error)
+ }
+  }
+  getReport().then(r => r)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Home/>
     </div>
   );
 }
