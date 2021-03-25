@@ -1,4 +1,4 @@
-import Type from "../types/types";
+import {Type} from "../types/types";
 
 const initialState = {
     global : [],

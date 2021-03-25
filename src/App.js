@@ -2,7 +2,6 @@ import React from "react";
 import Home from "./pages/Home";
 
 
-const axios = require('axios')
 function App() {
  //  const  getReport = async () => {
  // try   {

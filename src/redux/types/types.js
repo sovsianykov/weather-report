@@ -1,4 +1,4 @@
-export default {
+export  const Type = {
     FETCH_START: "FETCH_START",
     FETCH_ERROR: "FETCH_ERROR",
     GET_WEATHER_REPORT: "GET_WEATHER_REPORT",
