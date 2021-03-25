@@ -3,11 +3,11 @@ import Type from "../types/types";
 export const weather = (state = [], { type, payload }) => {
     switch (type) {
         case Type.GET_WEATHER_REPORT:
-            return [...state, payload.obj];
+            return [...state, payload];
         case Type.GET_WEATHER_HOURLY:
-            return [...state, payload.obj];
+            return [...state, payload];
         case Type.GET_WEATHER_DAY:
-            return [...state, payload.obj];
+            return [...state, payload];
         default:
             return state;
     }

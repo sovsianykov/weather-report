@@ -6,6 +6,7 @@ export default {
     async getWeatherReport() {
         try {
             const data = await axios.get(baseUrl)
+            console.log( 'from services' + data.data)
             return data;
         } catch (error) {
             console.log(error);
