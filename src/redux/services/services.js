@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Vishneve%20kiev%20ukraine?unitGroup=metric&key=DNXXQ6TVGXMLXZRFYJMA92QSE&include=fcst%2Chours%2Ccurrent'
 
-export default {
+export const serv ={
     async getWeatherReport() {
         try {
             const data = await axios.get(baseUrl)
