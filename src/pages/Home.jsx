@@ -1,16 +1,16 @@
 
 import * as React from 'react';
-import Days from "./Days";
-import Button from "@material-ui/core/Button";
 import { fetchWeather } from "../redux/operations/operations";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {makeStyles}from "@material-ui/core/styles";
 import {Box, Typography} from "@material-ui/core";
+import bg from '../assets/img/bg1.jpg'
+import {Hourly} from "../components/Hourly";
 
 const useStyles = makeStyles({
     root : {
-        background : 'blue',
+        background : `url(${bg})`,
         width : "100%",
         height : "100vh",
         position: 'absolute',
@@ -21,8 +21,22 @@ const useStyles = makeStyles({
         fontWeight : 200 ,
         color : "antiquewhite",
         textAlign : 'center',
-        marginTop: '20%'
-    }
+        marginTop: '10%'
+    },
+    text1 : {
+        fontSize : 30,
+        fontWeight : 300 ,
+        color : "antiquewhite",
+        textAlign : 'center',
+        marginTop: 10
+    },
+    text2 : {
+        fontSize : 25,
+        fontWeight : 200 ,
+        color : "antiquewhite",
+        textAlign : 'center',
+        marginTop: 10
+    },
 
 
 })
@@ -39,15 +53,23 @@ const Home = () => {
     const obj = useSelector( state =>state.weather.global)
 
     console.log(obj)
- let temp =  (obj.data  )? obj.data.currentConditions.temp :  8
-    console.log(temp)
+ let toDay =  (obj.data  )? obj.data.currentConditions :  8
+    console.log(toDay)
 
     return (
         <Box>
             <main className={classes.root} >
                <Typography className={classes.title} variant='h1' >
-                   t {temp}°C
+                   t {toDay.temp}°C
                </Typography>
+                <Typography className={classes.text1} variant='subtitle1' >
+                  feells like  {toDay.feelslike}°C
+                </Typography>
+                <Typography className={classes.text2} variant='subtitle2' >
+                    {toDay.conditions}
+                </Typography>
+
+               <Hourly obj={obj}/>
             </main>
         </Box>
     );
